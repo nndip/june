@@ -1,3 +1,4 @@
 water
 carrot
 onion
+salt
