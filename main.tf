@@ -9,7 +9,7 @@ resource "aws_vpc" "vpc" {
   enable_dns_hostnames = true
   enable_dns_support   = true
   tags = {
-    Name        = "devops-vpc"
+    Name        = "devops-vpc-june"
     Environment = "dev"  }
 }
 
@@ -17,7 +17,7 @@ resource "aws_vpc" "vpc" {
 resource "aws_internet_gateway" "ig" {
   vpc_id = aws_vpc.vpc.id
   tags = {
-    Name        = "devops-igw"
+    Name        = "devops-igw-june"
     Environment = "dev"
   }
 }
@@ -32,7 +32,7 @@ resource "aws_nat_gateway" "nat" {
   subnet_id     = element(aws_subnet.public_subnet.*.id, 0)
   depends_on    = [aws_internet_gateway.ig]
   tags = {
-    Name        = "devops-nat"
+    Name        = "devops-nat-june"
     Environment = "dev"
   }
 }
@@ -44,7 +44,7 @@ resource "aws_subnet" "public_subnet" {
   availability_zone       = "us-east-1a"
   map_public_ip_on_launch = true
   tags = {
-    Name        = "devops-public-subnet"
+    Name        = "devops-public-subnet-june"
     Environment = "dev"
   }
 }
