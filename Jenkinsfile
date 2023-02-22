@@ -6,6 +6,13 @@ pipeline {
                 sh ('terraform init');
             }
         }
+        
+        stage('Terraform Action') {
+            steps {
+                echo "terrafom action from the parameter is --> ${action}"
+                sh ('terraform ${action};
+            }
+        }
 
         
         stage('Terraform Action') {
